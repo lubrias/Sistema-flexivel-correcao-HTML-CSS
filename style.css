@@ -1,0 +1,245 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;        /* evita scroll horizontal */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0a1c3a, #0f274d);
+    color: white;
+}
+
+/* ajuda a encontrar elementos problemáticos (remova após corrigir) */
+/* .debug * { outline: 1px dashed rgba(255,255,255,0.06); } */
+
+/* imagens não estouram o layout */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* links padrão */
+a {
+    color: inherit;
+}
+
+/* containers centrais */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px; /* padding responsivo */
+}
+
+/* ========== TOPBAR ========== */
+/* topbar usa box-sizing para que padding não quebre largura */
+.topbar {
+    width: 100%;
+    box-sizing: border-box;
+    height: 70px;
+    background: rgba(10, 28, 58, 0.7);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px; /* reduzido para evitar overflow */
+    border-bottom: 1px solid rgba(94, 198, 255, 0.3);
+}
+
+/* logo + nome */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #5ec6ff;
+    white-space: nowrap;
+}
+
+/* menu: usar flex, permitir quebra caso seja necessário em telas pequenas */
+.menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-shrink: 0;         /* evita que seja encolhido inesperadamente */
+    margin-left: 12px;
+    padding-left: 8px;
+}
+
+/* links do menu */
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    white-space: nowrap;   /* evita quebra dentro do link */
+}
+
+/* para evitar overflow por palavras longas em tabelas/textos */
+* {
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* hover */
+.menu a:hover {
+    color: #5ec6ff;
+}
+
+/* ========== LAYOUT GERAL DE PÁGINAS ========== */
+.main-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* cards padrão */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* card básico */
+.card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(94,198,255,0.12);
+    min-width: 220px;
+    flex: 1 1 200px; /* flex-grow, shrink, basis -> responsivo */
+}
+
+/* botões básicos */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* ========== TABELAS (provas / rendimento) ========== */
+
+/* wrapper que permite scroll interno se tabela for maior que a tela */
+.table-wrap {
+    width: 100%;
+    overflow-x: auto; /* mantém tabela dentro e evita scroll da página */
+}
+
+/* estilo de tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.03);
+    min-width: 600px; /* assegura legibilidade; o .table-wrap criará scroll interno */
+}
+
+.table th,
+.table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.table thead th {
+    background: rgba(94,198,255,0.12);
+    color: #5ec6ff;
+}
+
+/* ========== GRÁFICOS SIMULADOS (correção) ========== */
+.bar-chart {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 12px;
+    height: 160px;
+}
+
+.bar {
+    width: 20px;
+    background: #5ec6ff;
+    border-radius: 6px 6px 0 0;
+    opacity: 0.9;
+}
+
+/* pizza fake */
+.pie-chart {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#5ec6ff 0% 65%, rgba(255,255,255,0.12) 65% 100%);
+    position: relative;
+}
+
+.pie-chart .inner {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #0a1c3a;
+    position: absolute;
+    top: 33px;
+    left: 33px;
+}
+
+/* média visual */
+.avg-box {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    color: #5ec6ff;
+}
+
+/* ========== RESPONSIVO (mobile) ========== */
+@media (max-width: 900px) {
+    .topbar {
+        padding: 0 12px;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    /* reduzir min-width da tabela para evitar overflow desnecessário */
+    .table {
+        min-width: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-area img { height: 42px; }
+    .brand { font-size: 16px; }
+    .menu a { font-size: 14px; }
+    .card { padding: 16px; }
+    .bar-chart { height: 120px; gap: 8px; }
+}

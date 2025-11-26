@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a1c3a, #0f274d);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.topbar {
+    width: 100%;
+    height: 70px;
+    background: rgba(10, 28, 58, 0.7);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(94, 198, 255, 0.3);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-area img {
+    height: 50px;
+    margin-right: 12px;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5ec6ff;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.menu a:hover,
+.menu .active {
+    color: #5ec6ff;
+}
+
+/* CAIXA CENTRAL */
+
+.logout-box {
+    max-width: 500px;
+    margin: 120px auto;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(94, 198, 255, 0.3);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.logout-box h1 {
+    font-size: 25px;
+    margin-bottom: 35px;
+    color: #5ec6ff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.btn.sair {
+    background: #5ec6ff;
+    color: #0a1c3a;
+}
+
+.btn.sair:hover {
+    background: #89d8ff;
+}
+
+.btn.voltar {
+    background: transparent;
+    border: 1px solid #5ec6ff;
+    color: #5ec6ff;
+}
+
+.btn.voltar:hover {
+    background: rgba(94, 198, 255, 0.2);
+}
+
+.info {
+    font-size: 13px;
+    opacity: 0.7;
+}
