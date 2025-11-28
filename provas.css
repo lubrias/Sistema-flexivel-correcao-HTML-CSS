@@ -1,9 +1,11 @@
+/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Fundo e padrão visual */
 html, body {
     overflow-x: hidden;
     font-family: Arial, sans-serif;
@@ -11,6 +13,7 @@ html, body {
     color: white;
 }
 
+/* Topbar */
 .topbar {
     display: flex;
     align-items: center;
@@ -46,7 +49,7 @@ html, body {
 .menu a {
     color: white;
     text-decoration: none;
-    padding: 6px 8px;
+    padding: 6px 10px;
     border-radius: 6px;
 }
 
@@ -55,16 +58,24 @@ html, body {
     color: #0a1c3a;
 }
 
+/* Container */
 .container {
     max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #bfefff;
+}
+
+/* Lista */
 .list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .item {
@@ -72,11 +83,16 @@ html, body {
     justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.04);
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(94, 198, 255, 0.08);
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(94, 198, 255, 0.10);
 }
 
+.item span {
+    font-size: 16px;
+}
+
+/* Botão */
 .item button {
     background: #5ec6ff;
     color: #0a1c3a;
@@ -85,4 +101,39 @@ html, body {
     border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.item button:hover {
+    background: #8fd8ff;
+}
+
+/* ======================
+       RESPONSIVIDADE
+======================= */
+
+@media (max-width: 600px) {
+    .topbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0 15px;
+        gap: 10px;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 18px;
+    }
+
+    .title {
+        text-align: center;
+    }
 }

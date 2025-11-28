@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Fundo padrão + imagem do CorreX com opacidade baixa */
+/* Fundo com gradiente padrão */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0a1c3a, #0f274d);
@@ -18,30 +18,33 @@ body {
     overflow: hidden;
 }
 
-/* Imagem de fundo do CorreX */
+/* Marca d'água do CorreX no fundo */
 body::before {
     content: "";
     position: absolute;
     inset: 0;
     background: url("CorreXlogo (1).png") center/380px no-repeat;
-    opacity: 0.06;             /* imagem super suave */
+    opacity: 0.05;
     filter: blur(3px);
+    z-index: 0;
 }
 
-/* Wrapper para centralizar */
+/* Wrapper */
 .login-wrapper {
     position: relative;
     z-index: 2;
     width: 100%;
+    padding: 20px;
 }
 
-/* Caixa do login com efeito vidro */
+/* Caixa com efeito vidro */
 .login-box {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(6px);
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(7px);
     border: 1px solid rgba(94,198,255,0.25);
     padding: 40px 35px;
     width: 360px;
+    max-width: 92%;
     margin: auto;
     border-radius: 14px;
     text-align: center;
@@ -51,7 +54,7 @@ body::before {
 /* Logo */
 .login-img {
     height: 85px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     filter: drop-shadow(0 0 5px rgba(94,198,255,0.4));
 }
 
@@ -66,7 +69,7 @@ body::before {
 label {
     display: block;
     text-align: left;
-    margin-top: 12px;
+    margin-top: 14px;
     margin-bottom: 4px;
     font-size: 14px;
     opacity: 0.85;
@@ -82,16 +85,22 @@ input {
     outline: none;
     background: rgba(255,255,255,0.12);
     color: white;
+    transition: 0.2s ease;
+}
+
+input:focus {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid #5ec6ff;
 }
 
 input::placeholder {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.5);
 }
 
 /* Botão */
 .btn {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
     padding: 12px;
     background: #5ec6ff;
     color: #0a1c3a;
@@ -99,9 +108,30 @@ input::placeholder {
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: 0.25s ease-in-out;
 }
 
 .btn:hover {
     background: #8fd8ff;
+}
+
+/* ======================
+   RESPONSIVIDADE MOBILE
+======================= */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 28px 22px;
+    }
+
+    .login-img {
+        height: 70px;
+    }
+
+    .login-box h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 13px;
+    }
 }

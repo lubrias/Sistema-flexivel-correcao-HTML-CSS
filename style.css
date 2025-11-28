@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-/* TOPBAR — agora 100% padronizada com o restante das páginas */
+/* TOPBAR */
 .topbar {
     display: flex;
     align-items: center;
@@ -103,7 +103,7 @@ body {
     background: #8fdaff;
 }
 
-/* MODAL — agora completamente fixo e isolado */
+/* MODAL */
 .modal {
     position: fixed;
     top: 0;
@@ -147,4 +147,64 @@ body {
 
 .modal-btn:hover {
     background: #8fdaff;
+}
+
+/* ----------------------------- */
+/*  RESPONSIVIDADE               */
+/* ----------------------------- */
+
+/* Smartphones */
+@media (max-width: 600px) {
+
+    .topbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        margin-top: 60px;
+        padding: 0 15px;
+    }
+
+    .hero-box {
+        width: 100%;
+        padding: 35px 20px;
+    }
+
+    .hero-box h1 {
+        font-size: 26px;
+    }
+
+    .hero-box p {
+        font-size: 15px;
+    }
+
+    .btn-login {
+        padding: 12px 22px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 25px 20px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .hero {
+        margin-top: 80px;
+        padding: 0 20px;
+    }
+
+    .hero-box {
+        width: 80%;
+    }
 }
