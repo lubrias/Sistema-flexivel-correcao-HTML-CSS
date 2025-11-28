@@ -1,25 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>CorreX - Início</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header class="topbar">
-        <div class="logo-area">
-            <img src="CorreXlogo (1).png" alt="Logo CorreX">
-            <span class="brand">CorreX</span>
-        </div>
 
-        <nav class="menu">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="provas.html">Provas</a>
-            <a href="correcao.html">Correção</a>
-            <a href="sair.html">Sair</a>
-        </nav>
-    </header>
+<header class="topbar">
+    <div class="logo-area">
+        <img src="CorreXlogo (1).png" alt="Logo CorreX">
+        <span class="brand">CorreX</span>
+    </div>
+
+    <nav class="menu">
+        <a href="#" class="need-login">Dashboard</a>
+        <a href="#" class="need-login">Provas</a>
+        <a href="#" class="need-login">Correção</a>
+        <a href="sair.html">Sair</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-box">
+        <h1>Bem-vindo ao CorreX</h1>
+        <p>Gerencie provas, envie atividades e acompanhe correções de forma simples e rápida.</p>
+        <a href="login.html" class="btn-login">Fazer login</a>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <h2>Você precisa logar antes</h2>
+        <p>Faça login para acessar essa área do sistema.</p>
+        <button id="close-modal" class="modal-btn">Fechar</button>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".need-login").forEach(item => {
+        item.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.getElementById("login-modal").classList.add("show");
+        });
+    });
+
+    document.getElementById("close-modal").addEventListener("click", () => {
+        document.getElementById("login-modal").classList.remove("show");
+    });
+</script>
+
 </body>
 </html>

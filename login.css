@@ -1,0 +1,107 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo padrão + imagem do CorreX com opacidade baixa */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0a1c3a, #0f274d);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagem de fundo do CorreX */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("CorreXlogo (1).png") center/380px no-repeat;
+    opacity: 0.06;             /* imagem super suave */
+    filter: blur(3px);
+}
+
+/* Wrapper para centralizar */
+.login-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Caixa do login com efeito vidro */
+.login-box {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(94,198,255,0.25);
+    padding: 40px 35px;
+    width: 360px;
+    margin: auto;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 0 18px rgba(94,198,255,0.18);
+}
+
+/* Logo */
+.login-img {
+    height: 85px;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 0 5px rgba(94,198,255,0.4));
+}
+
+/* Título */
+.login-box h1 {
+    color: #5ec6ff;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* Botão */
+.btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: #5ec6ff;
+    color: #0a1c3a;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background: #8fd8ff;
+}
