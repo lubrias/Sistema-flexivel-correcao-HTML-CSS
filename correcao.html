@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Correção - CorreX</title>
     <link rel="stylesheet" href="correcao.css">
-
-    <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -27,109 +25,90 @@
 </header>
 
 <main class="container">
-    <h1>Correção</h1>
+    <h1 class="title">Correção</h1>
 
-    <div class="cards">
-        <!-- CARD 1 -->
-        <div class="card">
-            <h2>Acertos por questão</h2>
-            <canvas id="grafico-acertos"></canvas>
+    <div class="lista-provas">
+        <div class="prova-item">
+            <span>ENEM 2024</span>
+            <button class="btn-ver" data-prova="enem2024">Ver análise</button>
         </div>
-
-        <!-- CARD 2 -->
-        <div class="card">
-            <h2>Taxa de erro (%)</h2>
-            <canvas id="grafico-erros"></canvas>
+        <div class="prova-item">
+            <span>Simulado 01</span>
+            <button class="btn-ver" data-prova="simulado1">Ver análise</button>
         </div>
+        <div class="prova-item">
+            <span>Redação Turma A</span>
+            <button class="btn-ver" data-prova="redacaoA">Ver análise</button>
+        </div>
+    </div>
 
-        <!-- CARD 3 -->
-        <div class="card">
-            <h2>Média das notas</h2>
-            <canvas id="grafico-media"></canvas>
+    <div id="area-graficos" style="display:none; margin-top:30px;">
+        <h3 id="titulo-prova"></h3>
+
+        <div class="cards">
+            <div class="card">
+                <h2>Acertos por questão</h2>
+                <canvas id="grafico-acertos"></canvas>
+            </div>
+            <div class="card">
+                <h2>Taxa de erro (%)</h2>
+                <canvas id="grafico-erros"></canvas>
+            </div>
+            <div class="card">
+                <h2>Média das notas</h2>
+                <canvas id="grafico-media"></canvas>
+            </div>
         </div>
     </div>
 </main>
 
 <script>
-/* ----------------------------- */
-/*  CONFIG PADRÃO (sem animação) */
-/* ----------------------------- */
+const dadosPorProva = {
+    enem2024: { titulo: "ENEM 2024", acertos: [18,22,15,27,19], erros: [20,15,35,10,25], media: 7.3 },
+    simulado1: { titulo: "Simulado 01", acertos: [12,20,25,30,16], erros: [30,20,10,15,25], media: 6.4 },
+    redacaoA: { titulo: "Redação Turma A", acertos: [25,27,23,28,26], erros: [10,12,15,8,11], media: 8.7 }
+};
+
 const defaultOptions = {
     animation: false,
     responsive: true,
-    plugins: {
-        legend: {
-            labels: {
-                color: "white"
-            }
-        }
-    },
+    plugins: { legend: { labels: { color: "white" } } },
     scales: {
-        x: {
-            ticks: { color: "white" },
-            grid: { color: "rgba(255,255,255,0.1)" }
-        },
-        y: {
-            ticks: { color: "white" },
-            grid: { color: "rgba(255,255,255,0.1)" }
-        }
+        x: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.1)" } },
+        y: { ticks: { color: "white" }, grid: { color: "rgba(255,255,255,0.1)" } }
     }
 };
 
-/* ----------------------------- */
-/*  GRÁFICO 1 - ACERTOS          */
-/* ----------------------------- */
-new Chart(document.getElementById("grafico-acertos"), {
-    type: "bar",
-    data: {
-        labels: ["Q1", "Q2", "Q3", "Q4", "Q5"],
-        datasets: [{
-            label: "Acertos",
-            data: [18, 22, 15, 27, 19],
-            backgroundColor: "#5ec6ff"
-        }]
-    },
-    options: defaultOptions
-});
+document.querySelectorAll(".btn-ver").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const prova = btn.dataset.prova;
+        const dados = dadosPorProva[prova];
 
-/* ----------------------------- */
-/*  GRÁFICO 2 - TAXA DE ERRO     */
-/* ----------------------------- */
-new Chart(document.getElementById("grafico-erros"), {
-    type: "line",
-    data: {
-        labels: ["Q1", "Q2", "Q3", "Q4", "Q5"],
-        datasets: [{
-            label: "Erros (%)",
-            data: [20, 15, 35, 10, 25],
-            borderColor: "#ff7676",
-            backgroundColor: "rgba(255,118,118,0.3)",
-            fill: true,
-            tension: 0.3
-        }]
-    },
-    options: defaultOptions
-});
+        document.getElementById("titulo-prova").innerText = dados.titulo;
+        document.getElementById("area-graficos").style.display = "block";
 
-/* ----------------------------- */
-/*  GRÁFICO 3 - MÉDIA            */
-/* ----------------------------- */
-new Chart(document.getElementById("grafico-media"), {
-    type: "doughnut",
-    data: {
-        labels: ["Média", "Faltando"],
-        datasets: [{
-            data: [7.3, 10 - 7.3],
-            backgroundColor: ["#5ec6ff", "rgba(255,255,255,0.15)"],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        animation: false,
-        plugins: {
-            legend: { labels: { color: "white" } }
-        }
-    }
+        if(window.g1) window.g1.destroy();
+        if(window.g2) window.g2.destroy();
+        if(window.g3) window.g3.destroy();
+
+        window.g1 = new Chart(document.getElementById("grafico-acertos"), {
+            type: "bar",
+            data: { labels:["Q1","Q2","Q3","Q4","Q5"], datasets:[{ label:"Acertos", data:dados.acertos, backgroundColor:"#5ec6ff" }] },
+            options: defaultOptions
+        });
+
+        window.g2 = new Chart(document.getElementById("grafico-erros"), {
+            type: "line",
+            data: { labels:["Q1","Q2","Q3","Q4","Q5"], datasets:[{ label:"Erros (%)", data:dados.erros, borderColor:"#ff7676", backgroundColor:"rgba(255,118,118,0.3)", fill:true, tension:0.3 }] },
+            options: defaultOptions
+        });
+
+        window.g3 = new Chart(document.getElementById("grafico-media"), {
+            type:"doughnut",
+            data:{ labels:["Média","Faltando"], datasets:[{ data:[dados.media,10-dados.media], backgroundColor:["#5ec6ff","rgba(255,255,255,0.15)"], borderWidth:0 }] },
+            options:{ animation:false, plugins:{ legend:{ labels:{ color:"white" } } } }
+        });
+    });
 });
 </script>
 

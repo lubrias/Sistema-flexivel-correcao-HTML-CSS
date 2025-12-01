@@ -23,8 +23,6 @@ html, body {
     height: 70px;
     background: rgba(10, 28, 58, 0.75);
     border-bottom: 1px solid rgba(94, 198, 255, 0.12);
-
-    /* permite reorganização perfeita no mobile */
     flex-wrap: wrap;
 }
 
@@ -47,7 +45,7 @@ html, body {
     display: flex;
     gap: 18px;
     align-items: center;
-    flex-wrap: wrap; /* importante */
+    flex-wrap: wrap;
 }
 
 .menu a {
@@ -55,7 +53,7 @@ html, body {
     text-decoration: none;
     padding: 6px 8px;
     border-radius: 6px;
-    white-space: nowrap;  /* impede quebra feia */
+    white-space: nowrap;
 }
 
 .menu a.active {
@@ -187,12 +185,53 @@ html, body {
     z-index: 2;
 }
 
+/* ---------------------------------------------------- */
+/*  UPLOAD DE PROVAS (NOVO)                             */
+/* ---------------------------------------------------- */
+
+.upload-area {
+    margin-top: 40px;
+}
+
+.upload-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(94, 198, 255, 0.10);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.upload-box p {
+    font-size: 15px;
+    color: #dcefff;
+    margin-bottom: 15px;
+}
+
+.upload-btn {
+    padding: 10px 18px;
+    background: #5ec6ff;
+    color: #0a1c3a;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-block;
+    transition: background .2s;
+    font-size: 14px;
+}
+
+.upload-btn:hover {
+    background: #4bb3e8;
+}
+
+.upload-btn input {
+    display: none;
+}
+
 /* ----------------------------- */
 /*  RESPONSIVIDADE               */
 /* ----------------------------- */
 
 @media (max-width: 600px) {
-
     .topbar {
         flex-direction: column;
         height: auto;
@@ -205,11 +244,6 @@ html, body {
         width: 100%;
         justify-content: center;
         gap: 12px;
-    }
-
-    .menu a {
-        font-size: 15px;
-        padding: 8px 12px;
     }
 
     .title {
@@ -235,10 +269,13 @@ html, body {
         width: 100%;
         text-align: center;
     }
+
+    .upload-btn {
+        width: 100%;
+    }
 }
 
 @media (max-width: 900px) {
-
     .menu {
         justify-content: center;
         gap: 14px;
