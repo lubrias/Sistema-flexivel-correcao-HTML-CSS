@@ -12,7 +12,7 @@ html, body {
 }
 
 /* ----------------------------- */
-/*  TOPBAR  (PADRÃO DASHBOARD)   */
+/*  TOPBAR (MESMO DOS OUTROS)   */
 /* ----------------------------- */
 
 .topbar {
@@ -51,16 +51,9 @@ html, body {
 .menu a {
     color: white;
     text-decoration: none;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-radius: 6px;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.menu a svg {
-    stroke: white;
 }
 
 .menu a.active {
@@ -68,63 +61,72 @@ html, body {
     color: #0a1c3a;
 }
 
-.menu a.active svg {
-    stroke: #0a1c3a;
-}
-
 /* ----------------------------- */
 /*  CONTEÚDO                     */
 /* ----------------------------- */
 
 .container {
-    max-width: 1100px;
+    max-width: 600px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.logout-box {
-    max-width: 520px;
-    margin: 80px auto;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid rgba(94, 198, 255, 0.08);
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #bfefff;
     text-align: center;
 }
 
-.logout-box h1 {
-    color: #bfefff;
-    margin-bottom: 20px;
-}
+/* ----------------------------- */
+/*  FORMULÁRIO                   */
+/* ----------------------------- */
 
-.buttons {
+.contact-form {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(94, 198, 255, 0.10);
+    padding: 25px;
+    border-radius: 12px;
     display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-bottom: 12px;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 16px;
+.contact-form label {
+    font-size: 15px;
+    color: #d4ecff;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(94, 198, 255, 0.15);
     border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
+    color: white;
+    font-size: 15px;
 }
 
-.btn.sair {
+.contact-form textarea {
+    height: 130px;
+    resize: none;
+}
+
+.contact-form button {
     background: #5ec6ff;
     color: #0a1c3a;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.btn.voltar {
-    border: 1px solid #5ec6ff;
-    color: #5ec6ff;
-}
-
-.info {
-    opacity: 0.8;
-    margin-top: 12px;
+.contact-form button:hover {
+    background: #4bb3e8;
 }
 
 /* ----------------------------- */
@@ -132,7 +134,6 @@ html, body {
 /* ----------------------------- */
 
 @media (max-width: 600px) {
-
     .topbar {
         flex-direction: column;
         height: auto;
@@ -147,30 +148,22 @@ html, body {
         gap: 12px;
     }
 
-    .menu a {
-        font-size: 15px;
-        padding: 8px 12px;
-    }
-
-    .logout-box {
-        padding: 24px;
-        margin: 50px 0;
-        width: 100%;
-    }
-
-    .buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
+    .title {
+        font-size: 26px;
     }
 }
 
-@media (max-width: 900px) {
-    .menu {
-        justify-content: center;
-        gap: 14px;
-    }
+/* Ícone da página de contato */
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+

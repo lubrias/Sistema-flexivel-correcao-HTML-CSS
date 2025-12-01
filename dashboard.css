@@ -201,6 +201,16 @@ html, body {
     text-align: center;
 }
 
+.upload-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.upload-icon {
+    filter: drop-shadow(0 0 6px rgba(94, 198, 255, 0.3));
+}
+
 .upload-box p {
     font-size: 15px;
     color: #dcefff;
@@ -228,7 +238,7 @@ html, body {
 }
 
 /* ----------------------------- */
-/*  RESPONSIVIDADE               */
+/*  RESPONSIVIVIDADE             */
 /* ----------------------------- */
 
 @media (max-width: 600px) {
