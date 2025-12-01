@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Correção - CorreX</title>
     <link rel="stylesheet" href="correcao.css">
+
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -18,6 +21,7 @@
         <a href="dashboard.html">Dashboard</a>
         <a href="provas.html">Provas</a>
         <a href="correcao.html" class="active">Correção</a>
+        <a href="planos.html">Planos</a>
         <a href="sair.html">Sair</a>
     </nav>
 </header>
@@ -26,11 +30,108 @@
     <h1>Correção</h1>
 
     <div class="cards">
-        <div class="card"><h2>Acertos por questão</h2><p>gráfico fictício</p></div>
-        <div class="card"><h2>Taxa de erro</h2><p>gráfico fictício</p></div>
-        <div class="card"><h2>Média</h2><p>7.3</p></div>
+        <!-- CARD 1 -->
+        <div class="card">
+            <h2>Acertos por questão</h2>
+            <canvas id="grafico-acertos"></canvas>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <h2>Taxa de erro (%)</h2>
+            <canvas id="grafico-erros"></canvas>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <h2>Média das notas</h2>
+            <canvas id="grafico-media"></canvas>
+        </div>
     </div>
 </main>
+
+<script>
+/* ----------------------------- */
+/*  CONFIG PADRÃO (sem animação) */
+/* ----------------------------- */
+const defaultOptions = {
+    animation: false,
+    responsive: true,
+    plugins: {
+        legend: {
+            labels: {
+                color: "white"
+            }
+        }
+    },
+    scales: {
+        x: {
+            ticks: { color: "white" },
+            grid: { color: "rgba(255,255,255,0.1)" }
+        },
+        y: {
+            ticks: { color: "white" },
+            grid: { color: "rgba(255,255,255,0.1)" }
+        }
+    }
+};
+
+/* ----------------------------- */
+/*  GRÁFICO 1 - ACERTOS          */
+/* ----------------------------- */
+new Chart(document.getElementById("grafico-acertos"), {
+    type: "bar",
+    data: {
+        labels: ["Q1", "Q2", "Q3", "Q4", "Q5"],
+        datasets: [{
+            label: "Acertos",
+            data: [18, 22, 15, 27, 19],
+            backgroundColor: "#5ec6ff"
+        }]
+    },
+    options: defaultOptions
+});
+
+/* ----------------------------- */
+/*  GRÁFICO 2 - TAXA DE ERRO     */
+/* ----------------------------- */
+new Chart(document.getElementById("grafico-erros"), {
+    type: "line",
+    data: {
+        labels: ["Q1", "Q2", "Q3", "Q4", "Q5"],
+        datasets: [{
+            label: "Erros (%)",
+            data: [20, 15, 35, 10, 25],
+            borderColor: "#ff7676",
+            backgroundColor: "rgba(255,118,118,0.3)",
+            fill: true,
+            tension: 0.3
+        }]
+    },
+    options: defaultOptions
+});
+
+/* ----------------------------- */
+/*  GRÁFICO 3 - MÉDIA            */
+/* ----------------------------- */
+new Chart(document.getElementById("grafico-media"), {
+    type: "doughnut",
+    data: {
+        labels: ["Média", "Faltando"],
+        datasets: [{
+            data: [7.3, 10 - 7.3],
+            backgroundColor: ["#5ec6ff", "rgba(255,255,255,0.15)"],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        animation: false,
+        plugins: {
+            legend: { labels: { color: "white" } }
+        }
+    }
+});
+</script>
 
 </body>
 </html>

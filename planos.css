@@ -12,7 +12,7 @@ html, body {
 }
 
 /* ----------------------------- */
-/*  TOPBAR                       */
+/*  TOPBAR  (PADRÃO DASHBOARD)   */
 /* ----------------------------- */
 
 .topbar {
@@ -24,7 +24,7 @@ html, body {
     background: rgba(10, 28, 58, 0.75);
     border-bottom: 1px solid rgba(94, 198, 255, 0.12);
 
-    /* importante p/ o menu reorganizar de forma bonita */
+    /* igual ao dashboard */
     flex-wrap: wrap;
 }
 
@@ -47,9 +47,7 @@ html, body {
     display: flex;
     gap: 18px;
     align-items: center;
-
-    /* deixa o menu quebrar corretamente quando apertar */
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* igual ao dashboard */
 }
 
 .menu a {
@@ -57,9 +55,7 @@ html, body {
     text-decoration: none;
     padding: 6px 8px;
     border-radius: 6px;
-
-    /* impede palavras de quebrarem no meio */
-    white-space: nowrap;
+    white-space: nowrap; /* impede quebra esquisita */
 }
 
 .menu a.active {
@@ -77,83 +73,111 @@ html, body {
     padding: 0 20px;
 }
 
-h1 {
+.title {
     font-size: 32px;
     margin-bottom: 25px;
     color: #bfefff;
 }
 
-.cards {
+.plans {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(94, 198, 255, 0.08);
+/* ----------------------------- */
+/*  PLANOS                       */
+/* ----------------------------- */
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(94, 198, 255, 0.15);
     flex: 1;
-    min-width: 250px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    min-width: 260px;
+    max-width: 320px;
+    text-align: center;
 }
 
-.card h2 {
+.plan-card h2 {
     color: #5ec6ff;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: 24px;
 }
 
-.card canvas {
-    width: 100% !important;
-    height: 260px !important;
-    margin-top: 10px;
+.price {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #bfefff;
+}
+
+.plan-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.plan-card ul li {
+    margin: 8px 0;
+    opacity: 0.85;
+}
+
+.plan-card button {
+    background: #5ec6ff;
+    color: #0a1c3a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.plan-card button:hover {
+    background: #93ddff;
+}
+
+.destaque {
+    border-color: #5ec6ff;
+    transform: scale(1.04);
 }
 
 /* ----------------------------- */
 /*  RESPONSIVIDADE               */
 /* ----------------------------- */
 
-/* CELULAR (até 600px) */
 @media (max-width: 600px) {
 
     .topbar {
         flex-direction: column;
         height: auto;
-        gap: 12px;
+        gap: 10px;
         padding: 12px 20px;
         text-align: center;
     }
 
     .menu {
-        justify-content: center;
-        gap: 10px;
         width: 100%;
+        justify-content: center;
+        gap: 12px;
     }
 
     .menu a {
-        padding: 8px 12px;
         font-size: 15px;
+        padding: 8px 12px;
     }
 
-    h1 {
-        font-size: 26px;
-        text-align: center;
-    }
-
-    .cards {
+    .plans {
         flex-direction: column;
     }
 
-    .card {
+    .plan-card {
         width: 100%;
     }
 }
 
-/* TABLETS (até 900px) */
 @media (max-width: 900px) {
 
     .menu {
@@ -161,12 +185,7 @@ h1 {
         gap: 14px;
     }
 
-    .cards {
+    .plans {
         justify-content: center;
-    }
-
-    .card {
-        flex: 1 1 45%;
-        min-width: 220px;
     }
 }

@@ -18,6 +18,7 @@
         <a href="dashboard.html" class="active">Dashboard</a>
         <a href="provas.html">Provas</a>
         <a href="correcao.html">Correção</a>
+        <a href="planos.html">Planos</a>
         <a href="sair.html">Sair</a>
     </nav>
 </header>
@@ -35,12 +36,79 @@
     <div class="section">
         <h3>Provas recentes</h3>
         <div class="recent-list">
-            <div class="recent-item"><span>Simulado ENEM 2024</span><button>Ver</button></div>
-            <div class="recent-item"><span>Prova Matemática - 3º ano</span><button>Ver</button></div>
-            <div class="recent-item"><span>Redações turma A</span><button>Ver</button></div>
+            <!-- cada botão tem data-img apontando para o ficheiro da imagem -->
+            <div class="recent-item">
+                <span>Simulado ENEM 2024</span>
+                <button class="ver-btn" data-img="foto_prova1.png">Ver</button>
+            </div>
+
+            <div class="recent-item">
+                <span>Prova Matemática - 3º ano</span>
+                <button class="ver-btn" data-img="foto_prova2.png">Ver</button>
+            </div>
+
+            <div class="recent-item">
+                <span>Redações turma A</span>
+                <button class="ver-btn" data-img="redacao_1000.jpg">Ver</button>
+            </div>
         </div>
     </div>
 </main>
+
+<!-- MODAL (colocado NO FINAL do body para garantir overlay) -->
+<div class="modal-bg" id="modalBg" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content" role="document">
+        <button class="close-btn" id="modalClose" aria-label="Fechar">Fechar ✕</button>
+        <!-- A imagem será inserida aqui dinamicamente -->
+        <img src="" alt="Visualização da prova" id="modalImage">
+    </div>
+</div>
+
+<script>
+    // Seleções
+    const modalBg = document.getElementById('modalBg');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    const viewButtons = document.querySelectorAll('.ver-btn');
+
+    // Função para abrir modal com imagem
+    function openModal(imgSrc, imgAlt = 'Prova') {
+        modalImage.src = imgSrc;
+        modalImage.alt = imgAlt;
+        modalBg.style.display = 'flex';      // use flex (CSS já define centering)
+        modalBg.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // impede scroll da página enquanto modal aberto
+    }
+
+    // Fechar modal
+    function closeModal() {
+        modalBg.style.display = 'none';
+        modalImage.src = '';                 // limpa src pra liberar memória
+        modalBg.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';   // restaura scroll
+    }
+
+    // Abrir modal ao clicar nos botões
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const img = btn.dataset.img || 'foto_prova1.png'; // fallback
+            openModal(img, btn.parentElement.querySelector('span')?.innerText || 'Prova');
+        });
+    });
+
+    // Fechar clicando no botão X
+    modalClose.addEventListener('click', closeModal);
+
+    // Fechar clicando fora do conteúdo (no background)
+    modalBg.addEventListener('click', (e) => {
+        if (e.target === modalBg) closeModal();
+    });
+
+    // Fechar com ESC
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalBg.style.display === 'flex') closeModal();
+    });
+</script>
 
 </body>
 </html>
