@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +6,14 @@
     font-family: Arial, sans-serif;
 }
 
-/* Fundo padrão do sistema */
+
 body {
     background: linear-gradient(135deg, #0a1c3a, #0f274d);
     color: white;
     overflow-x: hidden;
 }
 
-/* TOPBAR */
+
 .topbar {
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@ body {
     border-bottom: 1px solid rgba(94,198,255,0.12);
 }
 
-/* Logo */
+
 .logo-area {
     display: flex;
     align-items: center;
@@ -41,7 +41,7 @@ body {
     font-size: 20px;
 }
 
-/* Menu */
+
 .menu {
     display: flex;
     gap: 18px;
@@ -60,7 +60,7 @@ body {
     color: #5ec6ff;
 }
 
-/* HERO */
+
 .hero {
     display: flex;
     justify-content: center;
@@ -88,7 +88,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* Botão de login */
+
 .btn-login {
     padding: 12px 28px;
     background: #5ec6ff;
@@ -103,7 +103,7 @@ body {
     background: #8fdaff;
 }
 
-/* MODAL */
+
 .modal {
     position: fixed;
     top: 0;
@@ -149,11 +149,7 @@ body {
     background: #8fdaff;
 }
 
-/* ----------------------------- */
-/*  RESPONSIVIDADE               */
-/* ----------------------------- */
 
-/* Smartphones */
 @media (max-width: 600px) {
 
     .topbar {
@@ -197,7 +193,7 @@ body {
     }
 }
 
-/* Tablets */
+
 @media (max-width: 900px) {
     .hero {
         margin-top: 80px;

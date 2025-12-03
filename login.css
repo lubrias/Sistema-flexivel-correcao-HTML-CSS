@@ -1,11 +1,11 @@
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fundo com gradiente padrão */
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0a1c3a, #0f274d);
@@ -18,7 +18,7 @@ body {
     overflow: hidden;
 }
 
-/* Marca d'água do CorreX no fundo */
+
 body::before {
     content: "";
     position: absolute;
@@ -29,7 +29,7 @@ body::before {
     z-index: 0;
 }
 
-/* Wrapper */
+
 .login-wrapper {
     position: relative;
     z-index: 2;
@@ -37,7 +37,7 @@ body::before {
     padding: 20px;
 }
 
-/* Caixa com efeito vidro */
+
 .login-box {
     background: rgba(255,255,255,0.07);
     backdrop-filter: blur(7px);
@@ -51,21 +51,21 @@ body::before {
     box-shadow: 0 0 18px rgba(94,198,255,0.18);
 }
 
-/* Logo */
+
 .login-img {
     height: 85px;
     margin-bottom: 20px;
     filter: drop-shadow(0 0 5px rgba(94,198,255,0.4));
 }
 
-/* Título */
+
 .login-box h1 {
     color: #5ec6ff;
     margin-bottom: 20px;
     font-size: 26px;
 }
 
-/* Labels */
+
 label {
     display: block;
     text-align: left;
@@ -75,7 +75,7 @@ label {
     opacity: 0.85;
 }
 
-/* Inputs */
+
 input {
     width: 100%;
     padding: 12px;
@@ -97,7 +97,7 @@ input::placeholder {
     color: rgba(255,255,255,0.5);
 }
 
-/* Botão */
+
 .btn {
     width: 100%;
     margin-top: 12px;
@@ -115,9 +115,7 @@ input::placeholder {
     background: #8fd8ff;
 }
 
-/* ======================
-   RESPONSIVIDADE MOBILE
-======================= */
+
 @media (max-width: 480px) {
     .login-box {
         padding: 28px 22px;

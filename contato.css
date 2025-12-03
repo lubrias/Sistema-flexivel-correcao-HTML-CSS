@@ -11,9 +11,6 @@ html, body {
     color: white;
 }
 
-/* ----------------------------- */
-/*  TOPBAR (MESMO DOS OUTROS)   */
-/* ----------------------------- */
 
 .topbar {
     display: flex;
@@ -61,9 +58,7 @@ html, body {
     color: #0a1c3a;
 }
 
-/* ----------------------------- */
-/*  CONTEÚDO                     */
-/* ----------------------------- */
+
 
 .container {
     max-width: 600px;
@@ -78,9 +73,7 @@ html, body {
     text-align: center;
 }
 
-/* ----------------------------- */
-/*  FORMULÁRIO                   */
-/* ----------------------------- */
+
 
 .contact-form {
     background: rgba(255, 255, 255, 0.04);
@@ -129,9 +122,7 @@ html, body {
     background: #4bb3e8;
 }
 
-/* ----------------------------- */
-/*  RESPONSIVIDADE               */
-/* ----------------------------- */
+
 
 @media (max-width: 600px) {
     .topbar {
@@ -153,7 +144,7 @@ html, body {
     }
 }
 
-/* Ícone da página de contato */
+
 .contact-icon {
     display: flex;
     justify-content: center;

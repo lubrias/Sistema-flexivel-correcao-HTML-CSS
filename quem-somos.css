@@ -11,9 +11,7 @@ html, body {
     color: white;
 }
 
-/* ----------------------------- */
-/*  TOPBAR (IGUAL AO DASHBOARD)  */
-/* ----------------------------- */
+
 
 .topbar {
     display: flex;
@@ -61,9 +59,7 @@ html, body {
     color: #0a1c3a;
 }
 
-/* ----------------------------- */
-/*  CONTEÚDO DA PÁGINA           */
-/* ----------------------------- */
+
 
 .container {
     max-width: 900px;
@@ -94,9 +90,7 @@ html, body {
     color: #e6f7ff;
 }
 
-/* ----------------------------- */
-/*  RESPONSIVIDADE               */
-/* ----------------------------- */
+
 
 @media (max-width: 600px) {
     .topbar {
