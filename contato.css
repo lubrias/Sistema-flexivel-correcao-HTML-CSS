@@ -11,6 +11,9 @@ html, body {
     color: white;
 }
 
+/* ----------------------------- */
+/*  TOPBAR (MESMO DOS OUTROS)   */
+/* ----------------------------- */
 
 .topbar {
     display: flex;
@@ -58,7 +61,9 @@ html, body {
     color: #0a1c3a;
 }
 
-
+/* ----------------------------- */
+/*  CONTEÚDO                     */
+/* ----------------------------- */
 
 .container {
     max-width: 600px;
@@ -66,14 +71,24 @@ html, body {
     padding: 0 20px;
 }
 
+/* Ícone + título centralizado */
+.title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 .title {
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-top: 10px;
     color: #bfefff;
     text-align: center;
 }
 
-
+/* ----------------------------- */
+/*  FORMULÁRIO                   */
+/* ----------------------------- */
 
 .contact-form {
     background: rgba(255, 255, 255, 0.04);
@@ -122,7 +137,9 @@ html, body {
     background: #4bb3e8;
 }
 
-
+/* ----------------------------- */
+/*  RESPONSIVIDADE               */
+/* ----------------------------- */
 
 @media (max-width: 600px) {
     .topbar {
@@ -143,18 +160,3 @@ html, body {
         font-size: 26px;
     }
 }
-
-
-.contact-icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.title-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
